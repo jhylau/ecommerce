@@ -1,0 +1,15 @@
+{% extends "ecommerce/base.html" %}
+
+{% block content %}
+<form tag="Create Logon" method="post" action="/members/register">
+  {% csrf_token %}
+    Username *: <input type="username" name="username" />
+
+    Password *: <input type="password" name="pwd" />
+
+    Email *: <input type="email" name="email" />
+
+    <input type="submit" value="Submit" />
+
+   </form>
+{% endblock %}

@@ -1,0 +1,19 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+
+
+def signup(request):
+    return render(request, 'members/signup.html', {})
+
+def register(request):
+    user = User.objects.create_user(request.POST['username'],request.POST['email'],request.POST['pwd'])
+    user.save()
+    print request.POST
+    return HttpResponse("register" + str(user.id))
+
+
+def test(request):
+    print request.GET
+    return HttpResponse("Query Params:" + str(request.GET.values()))
+
